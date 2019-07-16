@@ -59,46 +59,49 @@ grid2 = TasmanianSG.TasmanianSparseGrid()
 # interpolate: f(x,y) = cos(0.5 * pi * x) * cos(0.5 * pi * y)
 # using piecewise linear basis functions.
 
-# 1000 2-dimensional sample points 
-aPnts = np.empty([1000, 2])  
-for iI in range(1000):
-    for iJ in range(2):
-        aPnts[iI][iJ] = uniform(-1.0, 1.0)
+# try different number of points
+points = range(1000, 10001, 10)
+for point in points:
+    # 1000 2-dimensional sample points
+    aPnts = np.empty([point, 2])
+    for iI in range(point):
+        for iJ in range(2):
+            aPnts[iI][iJ] = uniform(-1.0, 1.0)
 
-# Result
-aTres = np.empty([1000,])
-for iI in range(1000):
-    aTres[iI] = math.cos(0.5 * math.pi * aPnts[iI][0]) * math.cos(0.5 * math.pi * aPnts[iI][1])
+    # Result
+    aTres = np.empty([point,])
+    for iI in range(point):
+        aTres[iI] = math.cos(0.5 * math.pi * aPnts[iI][0]) * math.cos(0.5 * math.pi * aPnts[iI][1])
 
-# Sparse Grid with dimension 2 and 1 output and refinement level 5
-iDim = 2
-iOut = 1
-iDepth = 5
-which_basis = 1 #1= linear basis functions -> Check the manual for other options
+    # Sparse Grid with dimension 2 and 1 output and refinement level 5
+    iDim = 2
+    iOut = 1
+    iDepth = 5
+    which_basis = 1 #1= linear basis functions -> Check the manual for other options
 
-print("\n-------------------------------------------------------------------------------------------------")
-print("Example 1 for OSM: interpolate f(x,y) = cos(0.5 * pi * x) * cos(0.5 * pi * y)")
-print("       using fixed sparse grid with depth {0:1d}".format(iDepth))
-print("       the error is estimated as the maximum from 1000 random points\n")
+    print("\n-------------------------------------------------------------------------------------------------")
+    print("Example 1 for OSM: interpolate f(x,y) = cos(0.5 * pi * x) * cos(0.5 * pi * y)")
+    print("       using fixed sparse grid with depth {0:1d}".format(iDepth))
+    print("       the error is estimated as the maximum from 1000 random points\n")
 
-# construct sparse grid
-grid.makeLocalPolynomialGrid(iDim, iOut, iDepth, which_basis, "localp")
-aPoints = grid.getPoints()
-iNumP1 = aPoints.shape[0]
-aVals = np.empty([aPoints.shape[0], 1])
-for iI in range(aPoints.shape[0]):
-    aVals[iI] = math.cos(0.5 * math.pi * aPoints[iI][0]) * math.cos(0.5 * math.pi * aPoints[iI][1])
-grid.loadNeededPoints(aVals)
+    # construct sparse grid
+    grid.makeLocalPolynomialGrid(iDim, iOut, iDepth, which_basis, "localp")
+    aPoints = grid.getPoints()
+    iNumP1 = aPoints.shape[0]
+    aVals = np.empty([aPoints.shape[0], 1])
+    for iI in range(aPoints.shape[0]):
+        aVals[iI] = math.cos(0.5 * math.pi * aPoints[iI][0]) * math.cos(0.5 * math.pi * aPoints[iI][1])
+    grid.loadNeededPoints(aVals)
 
-# compute the error
-aRes = grid.evaluateBatch(aPnts)
-fError1 = max(np.fabs(aRes[:,0] - aTres))
-print(" For localp    Number of points: {0:1d}   Max. Error: {1:1.16e}".format(iNumP1, fError1))
+    # compute the error
+    aRes = grid.evaluateBatch(aPnts)
+    fError1 = max(np.fabs(aRes[:,0] - aTres))
+    print(" For localp    Number of points: {0:1d}   Max. Error: {1:1.16e}".format(iNumP1, fError1))
 
-# write coordinates of grid to a text file
-f=open("fix_sparse_grid.txt", 'a')
-np.savetxt(f, aPoints, fmt='% 2.16f')
-f.close()
+    # # write coordinates of grid to a text file
+    # f=open("fix_sparse_grid.txt", 'a')
+    # np.savetxt(f, aPoints, fmt='% 2.16f')
+    # f.close()
 
 #############################################################################
 
@@ -115,7 +118,7 @@ iDim = 2
 iOut = 1
 iDepth = 1
 fTol = 1.E-5
-which_basis = 1 
+which_basis = 1
 refinement_level = 5
 
 # level of grid before refinement
@@ -153,14 +156,11 @@ for iK in range(refinement_level):
 f2=open("Adaptive_sparse_grid.txt", 'a')
 np.savetxt(f2, aPoints, fmt='% 2.16f')
 f2.close()
- 
+
 grid2 = TasmanianSG.TasmanianSparseGrid()
 grid2.makeLocalPolynomialGrid(iDim, iOut, refinement_level+iDepth, which_basis, "localp")
 a = grid2.getNumPoints()
- 
+
 print("\n-------------------------------------------------------------------------------------------------")
 print( "   a fix sparse grid of level ", refinement_level+iDepth, " would consist of " ,a, " points")
-print("\n-------------------------------------------------------------------------------------------------\n")    
-
-
-    
+print("\n-------------------------------------------------------------------------------------------------\n")
