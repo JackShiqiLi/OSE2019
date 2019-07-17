@@ -40,6 +40,7 @@
 #
 import TasmanianSG
 import numpy as np
+import matplotlib.pyplot as plt
 
 # imports specifically needed by the examples
 import math
@@ -60,9 +61,9 @@ grid2 = TasmanianSG.TasmanianSparseGrid()
 # using piecewise linear basis functions.
 
 # try different number of points
-points = range(1000, 10001, 10)
+points = range(100, 1001, 10)
 for point in points:
-    # 1000 2-dimensional sample points
+
     aPnts = np.empty([point, 2])
     for iI in range(point):
         for iJ in range(2):
@@ -102,7 +103,10 @@ for point in points:
     # f=open("fix_sparse_grid.txt", 'a')
     # np.savetxt(f, aPoints, fmt='% 2.16f')
     # f.close()
-
+    plt.plot(point, fError1, 'o-')
+    plt.plot(xlabel = 'number of points')
+    plt.plot(ylabel = 'absolute error')
+plt.show()
 #############################################################################
 
 ## EXAMPLE 2 for OSM:
