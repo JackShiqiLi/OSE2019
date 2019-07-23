@@ -7,7 +7,7 @@
 # send output to compute_pi.out
 #SBATCH --output=compute_pi.out
 
-#SBATCH --account=rccguest9465
+#SBATCH --account=oselab
 
 # this job requests 1 core. Cores can be selected from various nodes.
 #SBATCH --ntasks=1
