@@ -20,5 +20,5 @@
 # sandby partition on Midway1 will be selected as the default partition
 #SBATCH --partition=sandyb
 
-# Run the process 
-./helloworld.exe
+# Run the process
+./My_name.exec
