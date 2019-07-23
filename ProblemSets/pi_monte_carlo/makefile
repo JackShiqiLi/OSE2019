@@ -1,10 +1,10 @@
 #######################################################################
-all: compute_pi.exec
+all: pi_MC.exec
 #######################################################################
 
 ## Example 1
-compute_pi.exec : pi_monte_carlo.cpp
-	g++ compute_pi.cpp -o pi_MC.exec
+pi_MC.exec : pi_monte_carlo.cpp
+	g++ pi_monte_carlo.cpp -o pi_MC.exec
 
 #######################################################################
 

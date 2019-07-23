@@ -13,4 +13,5 @@
 #SBATCH --ntasks=1
 
 # Run the process
-./pi-MC.exec
+./pi_MC.exec
+1000000
