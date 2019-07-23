@@ -14,7 +14,7 @@ import numpy as np
 #====================================================================== 
 
 # Depth of "Classical" Sparse grid
-iDepth=1
+iDepth=5
 iOut=1         # how many outputs
 which_basis = 1 #linear basis function (2: quadratic local basis)
 
@@ -29,15 +29,15 @@ No_samples = 1000
 
 # Model Paramters
 
-n_agents=2  # number of continuous dimensions of the model
+n_agents=4  # number of continuous dimensions of the model
 
-beta=0.8
-rho=0.95
-zeta=0.5
+beta=0.5
+rho=0.4
+zeta=0.7
 psi=0.36
-gamma=2.0
-delta=0.025
-eta=1
+gamma=1.5
+delta=0.25
+eta=2
 big_A=(1.0-beta)/(psi*beta)
 
 # Ranges For States
