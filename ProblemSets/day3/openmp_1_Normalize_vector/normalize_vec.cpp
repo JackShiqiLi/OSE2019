@@ -37,15 +37,27 @@ void normalize_vector(double *v, int n){
 void normalize_vector_omp(double *v, int n)
 {
     double norm = 0.;
+    int i;
+    double demom = 0.;
 
+    std::cout << "using " << omp_get_max_threads() << " OpenMP threads" << std::endl;
+
+    #pragma omp parallel for reduction(+:norm)
     // compute the norm of v
-    for(int i=0; i<n; i++)
-        norm += v[i]*v[i];
-    norm = sqrt(norm);
+    for(i=0; i<n; i++) {
+      norm += v[i]*v[i];
+    }
 
+    norm = sqrt(norm);
+    denom = 1 / norm;
+
+    #pragma omp parallel shared(v, denom) private(i)
+    #pragma omp for
     // normalize v
-    for(int i=0; i<n; i++)
-        v[i] /= norm;
+    for(i=0; i<n; i++) {
+      v[i] * denom;
+    }
+
 }
 
 int main( void ){
@@ -79,5 +91,3 @@ int main( void ){
     free(v);
     return 0;
 }
-
-
