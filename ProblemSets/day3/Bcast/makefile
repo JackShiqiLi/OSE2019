@@ -4,7 +4,7 @@ all: broadcast.exec
 #######################################################################
 
 broadcast.exec: broadcast.cpp
-	g++ broadcast.cpp -o broadcast.exec	
+	mpicxx -O3 broadcast.cpp -o broadcast.exec	
 
 #######################################################################
 

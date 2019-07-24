@@ -3,18 +3,17 @@
 
 int main(int argc, char *argv[])
 {
-    int rank;
+    int rank, data;
     MPI_Init(&argc, &argv);
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     if (rank==0) {
-        int data = 2;
+      data =5;
     }
-    else {
-      int data = 5;
+    else{
+      data = 10;
     }
-
     /* broadcast the value of data of rank 0 to all ranks */
-    //MPI_Bcast(&data, 1, MPI_INT, 0, MPI_COMM_WORLD);
+    MPI_Bcast(&data, 1, MPI_INT, 0, MPI_COMM_WORLD);
 
     printf("I am rank %i and the value is %i\n", rank, data);
     MPI_Finalize();
