@@ -2,7 +2,7 @@ all: doc_prod.exec
 
 #######################################################################
 
-normalize_vec.exec: normalize_vec.cpp
+dot_prod.exec: dot_prod.cpp
 	g++ dot_prod.cpp -fopenmp -o dot_prod.exec
 
 #######################################################################

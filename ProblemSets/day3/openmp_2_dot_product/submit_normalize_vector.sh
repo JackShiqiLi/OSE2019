@@ -2,15 +2,15 @@
 
 #SBATCH --ntasks=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --cpus-per-task=8
+#SBATCH --cpus-per-task=20
 
 #SBATCH --time=00:01:00
 
 
-#SBATCH --job-name=normalize_vector
-#SBATCH --output=normalize_vector.out
+#SBATCH --job-name=dot_prod
+#SBATCH --output=dot_prod.out
 
-export OMP_NUM_THREADS=8
+export OMP_NUM_THREADS=20
 
 
 ### openmp executable
