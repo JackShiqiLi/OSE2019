@@ -27,6 +27,7 @@ void normalize_vector(double *v, int n){
     // compute the norm of v
     for(int i=0; i<n; i++)
         norm += v[i]*v[i];
+
     norm = sqrt(norm);
 
     // normalize v
@@ -54,7 +55,7 @@ void normalize_vector_omp(double *v, int n)
     #pragma omp for
     // normalize v
     for(i=0; i<n; i++) {
-      v[i] * denom;
+      v[i] *= denom;
     }
 
 }

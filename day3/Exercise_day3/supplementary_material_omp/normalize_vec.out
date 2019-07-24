@@ -1,0 +1,7 @@
+serial error   : 1.54987e-13
+using 8 OpenMP threads
+parallel error : 1.66533e-14
+8 threads
+serial     : 0.252334 seconds	parallel   : 0.0417775 seconds
+speedup    : 6.03995
+efficiency : 0.754993
