@@ -8,7 +8,7 @@
 
 
 #SBATCH --job-name=dot_prod
-#SBATCH --output=dot_prod.out
+#SBATCH --output=dot_prod10000.out
 
 export OMP_NUM_THREADS=20
 

@@ -1,0 +1,10 @@
+dot of vectors with length 10000 with 20 threads: 
+dot product 2.50025e+07 which matches the expected value 2.50025e+07
+parallely that took 0.00365907 seconds
+==============================================================
+dot of vectors with length 10000 serially: 
+dot product 2.50025e+07 which matches the expected value 2.50025e+07
+serially that took 7.25798e-05 seconds
+==============================================================
+speedup    : 0.0198356
+efficiency : 0.000991779
