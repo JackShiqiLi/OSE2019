@@ -16,14 +16,18 @@ int main(int argc, char *argv[])
     }
     if (rank==0) {
         for (i=0; i<size; i++) {
-            printf("enter a value:\n");
-            fflush(stdout);
-            scanf ("%d",&senddata[i]);
+        /* deleted previous input and output */
+        senddata[i] = 1;
         }
     }
+    printf("senddata are %i\n", senddata);
+    printf("I am rank %i and the value is %i\n", rank, receivedata);
 
     /* scatter the value of senddata of rank 0 to receivedata of all ranks */
-
+    
+    MPI_Scatter(senddata, 20/size, MPI_INT, &receivedata, 20/size, MPI_INT,  0, MPI_COMM_WORLD);
+    MPI_Gather(&receivedata, 20/size, MPI_INT, senddata, 20/size, MPI_INT, 0, MPI_COMM_WORLD);
+ 
     printf("I am rank %i and the value is %i\n", rank, receivedata);
     MPI_Finalize();
     return 0;

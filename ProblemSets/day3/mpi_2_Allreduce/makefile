@@ -4,7 +4,7 @@ all: allreduce.exec
 #######################################################################
 
 allreduce.exec: allreduce.cpp
-	mpicxx -O3 allreuce.cpp -o allreduce.exec
+	mpicxx -O3 allreduce.cpp -o allreduce.exec
 
 #######################################################################
 

@@ -6,7 +6,7 @@
 #SBATCH --job-name=allreduce
 
 # send output to allreduce.out
-#SBATCH --output=allreduceout
+#SBATCH --output=allreduce.out
 
 
 # this job requests 4 cores. Cores can be selected from various nodes.

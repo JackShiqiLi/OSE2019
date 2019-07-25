@@ -15,7 +15,7 @@ int main (int argc, char *argv[])
     MPI_Comm_size(MPI_COMM_WORLD, &size);
 
     /* Compute sum of all ranks. */
-    MPI_Reduce(&my_rank, &sum, 1, MPI_INT, MPI_SUM, 0, MPI_COMM_WORLD)
+    MPI_Reduce(&my_rank, &sum, 1, MPI_INT, MPI_SUM, 0, MPI_COMM_WORLD);
     
     printf ("Rank %i:\tSum = %i\n", my_rank, sum);
 
