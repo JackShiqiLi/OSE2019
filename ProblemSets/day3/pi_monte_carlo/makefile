@@ -1,10 +1,9 @@
 #######################################################################
-all: pi_MC.exec
+all: pi_MC_omp.exec
 #######################################################################
 
-## Example 1
-pi_MC.exec : pi_monte_carlo.cpp
-	g++ pi_monte_carlo.cpp -o pi_MC.exec
+pi_MC_omp.exec : pi_MC_omp.cpp
+	g++ pi_MC_omp.cpp -fopenmp -o pi_MC_omp.exec
 
 #######################################################################
 
