@@ -4,7 +4,7 @@
 #include <omp.h>
 
 int main(void){
-    const int N = 100000000;
+    const int N = 10000;
     std::vector<double> a1(N);
     std::vector<double> b1(N);
     std::vector<double> a2(N);

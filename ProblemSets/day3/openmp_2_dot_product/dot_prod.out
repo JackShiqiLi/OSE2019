@@ -1,10 +1,10 @@
-dot of vectors with length 100000000 with 20 threads: 
-dot product 2.5e+15 which matches the expected value 2.5e+15
-parallely that took 0.0654003 seconds
+dot of vectors with length 1000000000 with 20 threads: 
+dot product 2.5e+17 which does not match the expected value 2.5e+17
+parallely that took 0.463668 seconds
 ==============================================================
-dot of vectors with length 100000000 serially: 
-dot product 2.5e+15 which matches the expected value 2.5e+15
-serially that took 0.604769 seconds
+dot of vectors with length 1000000000 serially: 
+dot product 2.5e+17 which does not match the expected value 2.5e+17
+serially that took 5.98472 seconds
 ==============================================================
-speedup    : 9.24719
-efficiency : 0.46236
+speedup    : 12.9073
+efficiency : 0.645367
