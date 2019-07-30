@@ -1,0 +1,12 @@
+using 8 OpenMP threads
+using 8 OpenMP threads
+using 8 OpenMP threads
+using 8 OpenMP threads
+500000000 steps approximates pi as : 3.14159, with relative error 5.5271e-14
+the solution took 0.65114 seconds
+500000000 steps approximates pi as : 3.14159, with relative error 5.5695e-14
+the solution took 0.659066 seconds
+500000000 steps approximates pi as : 3.14159, with relative error 5.5695e-14
+the solution took 0.652807 seconds
+500000000 steps approximates pi as : 3.14159, with relative error 5.5695e-14
+the solution took 0.699197 seconds
