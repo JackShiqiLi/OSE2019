@@ -3,16 +3,16 @@
 # partition on Midway1 please change the --partition option if you want to use 
 # another partition on Midway1
 
-#SBATCH --time=00:01:00
+#SBATCH --time=01:00:00
 
-# set the job name to hello-hybrid
-#SBATCH --job-name=hello-hybrid
+# set the job name to DP
+#SBATCH --job-name=DP
 
-# send output to hello-hybrid_4.out
-#SBATCH --output=hello-hybrid_4.out
+# send output to DP.out
+#SBATCH --output=DP.out
 
 # this job requests 8 MPI processes
-#SBATCH --ntasks=4
+#SBATCH --ntasks=8
 
 
 # and request 16 cpus per task for OpenMP threads
